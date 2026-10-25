@@ -1,253 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Educational Hub Portfolio</title>
-    <style>
-        :root {
-            --bg-color: #0b0c10;
-            --sidebar-bg: #1f2833;
-            --text-color: #c5c6c7;
-            --accent-color: #66fcf1;
-            --hover-color: #45a29e;
-            --dark-accent: #1f2833;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* Navigation Sidebar */
-        .sidebar {
-            width: 300px;
-            background-color: var(--sidebar-bg);
-            border-right: 2px solid #1f2833;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            box-shadow: 4px 0px 15px rgba(0,0,0,0.5);
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            text-align: center;
-        }
-
-        .sidebar-header h1 {
-            font-size: 22px;
-            margin: 0 0 15px 0;
-            color: #fff;
-            letter-spacing: 1px;
-        }
-
-        /* Live Search Bar */
-        .search-box {
-            width: 90%;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid var(--hover-color);
-            background-color: var(--bg-color);
-            color: #fff;
-            font-size: 14px;
-            box-sizing: border-box;
-            margin: 0 auto;
-            display: block;
-            outline: none;
-        }
-
-        .search-box:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 5px var(--accent-color);
-        }
-
-        .game-list {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px 10px;
-        }
-
-        .game-item {
-            padding: 12px 15px;
-            margin-bottom: 6px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 15px;
-            font-weight: 500;
-            background-color: rgba(0, 0, 0, 0.2);
-            border-left: 3px solid transparent;
-        }
-
-        .game-item:hover {
-            background-color: var(--hover-color);
-            color: #fff;
-            transform: translateX(3px);
-        }
-
-        .game-item.active {
-            background-color: var(--accent-color);
-            color: #0b0c10;
-            font-weight: bold;
-            border-left: 3px solid #fff;
-        }
-
-        /* Main Game Content Area */
-        .main-content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: var(--bg-color);
-            position: relative;
-        }
-
-        .view-header {
-            padding: 15px 30px;
-            background-color: var(--sidebar-bg);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .view-header h2 {
-            margin: 0;
-            font-size: 20px;
-            color: #fff;
-        }
-
-        .frame-container {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 8px;
-            background-color: #000;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.7);
-        }
-
-        .placeholder-text {
-            font-size: 18px;
-            color: #7c7c8a;
-            text-align: center;
-            max-width: 400px;
-            line-height: 1.6;
-        }
-
-        /* Custom Scrollbar for Sidebar */
-        .game-list::-webkit-scrollbar {
-            width: 6px;
-        }
-        .game-list::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .game-list::-webkit-scrollbar-thumb {
-            background: var(--hover-color);
-            border-radius: 3px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c16">
+  <title>Stracath — Unblocked Games</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Stracath home">
+      <span class="brand-icon">🎮</span>
+      <span><strong>Stracath</strong><small>Unblocked <em>Games</em></small></span>
+    </a>
+    <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..." autocomplete="off"></label>
+    <nav class="top-actions">
+      <button class="text-btn" data-view="favorites">♥ <span>Favorites</span></button>
+      <button class="text-btn" data-view="history">◷ <span>History</span></button>
+    </nav>
+  </header>
 
-    <!-- SIDEBAR NAVIGATION -->
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h1>GN.SS Portal</h1>
-            <!-- Live Search Bar Element -->
-            <input type="text" id="searchBar" class="search-box" placeholder="Search 140+ games..." onkeyup="filterMenu()">
+  <div class="layout">
+    <aside class="sidebar">
+      <nav class="side-nav" aria-label="Game categories">
+        <button class="nav-item active" data-category="All">⌂ <span>Home</span></button>
+        <button class="nav-item" data-category="All">▦ <span>All Games</span></button>
+        <button class="nav-item" data-category="Action">ϟ <span>Action</span></button>
+        <button class="nav-item" data-category="Sports">⚽ <span>Sports</span></button>
+        <button class="nav-item" data-category="Arcade">🎮 <span>Arcade</span></button>
+        <button class="nav-item" data-category="Racing">◉ <span>Racing</span></button>
+        <button class="nav-item" data-category="Puzzle">✣ <span>Puzzle</span></button>
+        <button class="nav-item" data-category="IO Games">♟ <span>IO Games</span></button>
+        <button class="nav-item" data-category="Strategy">♛ <span>Strategy</span></button>
+        <div class="side-divider"></div>
+        <button class="nav-item geforce-link" id="sideGeforce">☁ <span>GeForce NOW</span><b>NVIDIA</b></button>
+      </nav>
+      <div class="sidebar-note"><span>♧</span><p>Play anywhere.<br>No downloads needed for supported browser games.</p></div>
+    </aside>
+
+    <main class="main-content">
+      <section class="hero">
+        <div class="hero-content">
+          <div class="hero-logo">🎮</div>
+          <div>
+            <h1>Stracath</h1>
+            <h2>Unblocked <span>Games</span></h2>
+          </div>
+          <p>Find your next favorite game. No downloads for supported browser games.</p>
+          <button class="primary-btn" id="exploreBtn">Explore Games <span>→</span></button>
         </div>
-        <div class="game-list" id="menuContainer">
-            <!-- Popular compiled items pointing to local repository directories -->
-            <div class="game-item" onclick="loadGame('Slope', './slope/index.html')">Slope</div>
-            <div class="game-item" onclick="loadGame('Retro Bowl', './retro-bowl/index.html')">Retro Bowl</div>
-            <div class="game-item" onclick="loadGame('Basketball Stars', './basketball-stars/index.html')">Basketball Stars</div>
-            <div class="game-item" onclick="loadGame('Cookie Clicker', './cookie-clicker/index.html')">Cookie Clicker</div>
-            <div class="game-item" onclick="loadGame('1 On 1 Soccer', './1-on-1-soccer/index.html')">1 On 1 Soccer</div>
-            <div class="game-item" onclick="loadGame('Basket Random', './basket-random/index.html')">Basket Random</div>
-            <div class="game-item" onclick="loadGame('Geometry Dash', './geometry-dash/index.html')">Geometry Dash</div>
-            <div class="game-item" onclick="loadGame('Bitlife', './bitlife/index.html')">Bitlife</div>
-            <div class="game-item" onclick="loadGame('Among Us', './among-us/index.html')">Among Us</div>
-            <div class="game-item" onclick="loadGame('2048 Cupcakes', './2048-cupcakes/index.html')">2048 Cupcakes</div>
-            <div class="game-item" onclick="loadGame('Bad Piggies', './bad-piggies/index.html')">Bad Piggies</div>
-            <div class="game-item" onclick="loadGame('Bloons TD 4', './bloons-td-4/index.html')">Bloons TD 4</div>
-            <div class="game-item" onclick="loadGame('Doodle Jump', './doodle-jump/index.html')">Doodle Jump</div>
-            <div class="game-item" onclick="loadGame('Drive Mad', './drive-mad/index.html')">Drive Mad</div>
-            <div class="game-item" onclick="saveGame('Happy Wheels', './happy-wheels/index.html')">Happy Wheels</div>
-            <div class="game-item" onclick="loadGame('Moto X3M', './moto-x3m/index.html')">Moto X3M</div>
-            <div class="game-item" onclick="loadGame('Papa\'s Pizzeria', './papas-pizzeria/index.html')">Papa's Pizzeria</div>
-            <div class="game-item" onclick="loadGame('Run 3', './run-3/index.html')">Run 3</div>
-            <div class="game-item" onclick="loadGame('Territorial.io', './territorial-io/index.html')">Territorial.io</div>
-            <div class="game-item" onclick="loadGame('World\'s Hardest Game', './worlds-hardest-game/index.html')">World's Hardest Game</div>
+        <div class="hero-art" aria-hidden="true"><span>RETRO BOWL</span><span>SLOPE</span><span>1v1.LOL</span><span>GEOMETRY DASH</span></div>
+      </section>
+
+      <section class="section" id="featuredSection">
+        <div class="section-heading"><h2>🔥 Featured Games</h2><button class="link-btn" id="viewAllBtn">View all →</button></div>
+        <div class="game-grid featured-grid" id="featuredGrid"></div>
+      </section>
+
+      <section class="section" id="allGamesSection">
+        <div class="section-heading"><h2>▦ All Games</h2><span class="results-count" id="resultsCount"></span></div>
+        <div class="filters" id="filters">
+          <button class="filter active" data-category="All">All</button>
+          <button class="filter" data-category="Action">Action</button>
+          <button class="filter" data-category="Sports">Sports</button>
+          <button class="filter" data-category="Arcade">Arcade</button>
+          <button class="filter" data-category="Racing">Racing</button>
+          <button class="filter" data-category="Puzzle">Puzzle</button>
+          <button class="filter" data-category="IO Games">IO Games</button>
+          <button class="filter" data-category="Strategy">Strategy</button>
         </div>
-    </div>
+        <div class="game-grid all-grid" id="allGamesGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>No games found. Try another search or category.</p>
+      </section>
+      <footer>Stracath is a fan-made game directory and is not affiliated with the game publishers or NVIDIA. Availability depends on each service and your network's rules.</footer>
+    </main>
 
-    <!-- MAIN INTERACTIVE DISPLAY -->
-    <div class="main-content">
-        <div class="view-header">
-            <h2 id="game-title">Project Dashboard</h2>
-        </div>
-        <div class="frame-container" id="stage">
-            <div class="placeholder-text" id="placeholder">
-                <h3>Welcome to your Custom Dashboard</h3>
-                Select any application tool or game configuration from the sidebar panel directory to load it directly inside the isolated canvas frame environment.
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Main Function to change game frames dynamically
-        function loadGame(title, path) {
-            document.getElementById('game-title').innerText = title;
-            
-            const placeholder = document.getElementById('placeholder');
-            if(placeholder) placeholder.remove();
-
-            const stage = document.getElementById('stage');
-            // Safe sandbox isolation layer prevents external domain communication tracking
-            stage.innerHTML = `<iframe src="${path}" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms"></iframe>`;
-
-            // Active State Visual Highlighters
-            const items = document.querySelectorAll('.game-item');
-            items.forEach(item => {
-                if(item.innerText === title) {
-                    item.classList.add('active');
-                } else {
-                    item.classList.remove('active');
-                }
-            });
-        }
-
-        // Live Search Filter Logic Function
-        function filterMenu() {
-            const input = document.getElementById('searchBar').value.toLowerCase();
-            const container = document.getElementById('menuContainer');
-            const items = container.getElementsByClassName('game-item');
-
-            for (let i = 0; i < items.length; i++) {
-                const textValue = items[i].textContent || items[i].innerText;
-                if (textValue.toLowerCase().indexOf(input) > -1) {
-                    items[i].style.display = "";
-                } else {
-                    items[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+    <aside class="rightbar">
+      <section class="panel geforce-panel">
+        <div class="nvidia-title"><span class="nvidia-mark">◉</span><div><small>NVIDIA</small><strong>GEFORCE NOW</strong></div></div>
+        <p>Play supported PC games through cloud gaming on compatible devices.</p>
+        <button class="nvidia-btn" id="geforceBtn">Open GeForce NOW ↗</button>
+        <ul class="feature-list"><li>♧ <span>Cloud gaming</span></li><li>↓ <span>No game downloads on supported devices</span></li><li>▣ <span>Compatible Chromebooks</span></li><li>◉ <span>Performance depends on connection</span></li></ul>
+      </section>
+      <section class="panel">
+        <h3>◷ Recently Played</h3>
+        <div id="historyList" class="mini-list"><p class="muted">Games you open will appear here.</p></div>
+      </section>
+      <section class="panel favorites-panel">
+        <h3>⭐ Your Favorites</h3><p>Save games using the heart on each card.</p>
+        <button class="secondary-btn" data-view="favorites">View Favorites</button>
+      </section>
+    </aside>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
 </body>
 </html>
