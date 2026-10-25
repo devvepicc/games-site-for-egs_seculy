@@ -3,10 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My School Project</title>
+    <title>GN.SS Hub</title>
+    <style>
+        :root {
+            --bg-color: #121214;
+            --sidebar-bg: #1a1a1e;
+            --text-color: #e1e1e6;
+            --accent-color: #007bff;
+            --hover-color: #29292e;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Navigation Sidebar */
+        .sidebar {
+            width: 280px;
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid #29292e;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid #29292e;
+            text-align: center;
+        }
+
+        .sidebar-header h1 {
+            font-size: 20px;
+            margin: 0;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .game-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .game-item {
+            padding: 12px 15px;
+            margin-bottom: 4px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .game-item:hover {
+            background-color: var(--hover-color);
+            color: #fff;
+        }
+
+        .game-item.active {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* Main Game Content Area */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-color);
+            position: relative;
+        }
+
+        .view-header {
+            padding: 15px 30px;
+            background-color: var(--sidebar-bg);
+            border-bottom: 1px solid #29292e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .view-header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        .frame-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            background-color: #000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .placeholder-text {
+            font-size: 18px;
+            color: #7c7c8a;
+            text-align: center;
+        }
+
+        /* Custom Scrollbar for Sidebar */
+        .game-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .game-list::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .game-list::-webkit-scrollbar-thumb {
+            background: #3e3e4a;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Educational Site</h1>
-    <p>This is a portfolio website built for a school assignment.</p>
+
+    <!-- SIDEBAR NAVIGATION -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h1>GN.SS Games</h1>
+        </div>
+        <div class="game-list">
+            <div class="game-item" onclick="loadGame('2048', 'https://play2048.co')">2048</div>
+            <div class="game-item" onclick="loadGame('Hextris', 'https://hextris.io')">Hextris</div>
+            <div class="game-item" onclick="loadGame('Flappy Bird', 'https://github.io')">Flappy Bird</div>
+            <div class="game-item" onclick="loadGame('Snake', 'https://netlify.app')">Snake Retro</div>
+            <div class="game-item" onclick="loadGame('Doodle Jump', 'https://github.io')">Doodle Jump</div>
+            <div class="game-item" onclick="loadGame('Pacman', 'https://pacman.live')">Pac-Man</div>
+            <div class="game-item" onclick="loadGame('Tower Blocks', 'https://github.io')">Tower Blocks</div>
+        </div>
+    </div>
+
+    <!-- MAIN GAME DISPLAY -->
+    <div class="main-content">
+        <div class="view-header">
+            <h2 id="game-title">Select a Game</h2>
+            <div id="game-controls"></div>
+        </div>
+        <div class="frame-container" id="stage">
+            <div class="placeholder-text" id="placeholder">Click any game in the sidebar menu to start playing immediately.</div>
+        </div>
+    </div>
+
+    <script>
+        function loadGame(title, url) {
+            // Update Title Header
+            document.getElementById('game-title').innerText = title;
+            
+            // Clear placeholder text if it exists
+            const placeholder = document.getElementById('placeholder');
+            if(placeholder) {
+                placeholder.remove();
+            }
+
+            // Target stage container and inject the standard iframe architecture
+            const stage = document.getElementById('stage');
+            stage.innerHTML = `<iframe src="${url}" allowfullscreen sandbox="allow-scripts allow-same-origin allow-forms"></iframe>`;
+
+            // Handle Active UI State highlighters
+            const items = document.querySelectorAll('.game-item');
+            items.forEach(item => {
+                if(item.innerText === title) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
