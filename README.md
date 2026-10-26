@@ -1,24 +1,31 @@
-# Stracath — Unblocked Games Directory
+# Stracath — Selenite-inspired browser arcade
 
-A static HTML/CSS/JavaScript game-directory starter made for GitHub Pages.
+A standalone static website designed for GitHub Pages, with a purple arcade aesthetic and local HTML games.
 
-## Files
-- `index.html` — page structure
-- `style.css` — responsive dark/purple design
-- `script.js` — search, category filters, favorites, recently opened list, and launch links
+## Features
+- Search, categories, favorites, recently played
+- In-site fullscreen player for local HTML games
+- Settings: compact cards and reduce motion
+- Mobile navigation
+- External links for commercial games/services that aren't hosted in this project
+
+## Included local HTML games
+- Neon Snake
+- Neon Pong
+- Block Breaker
+- Memory Match
+- Star Clicker
 
 ## Publish on GitHub Pages
-1. Download and extract `stracath-github-pages.zip`.
-2. Create a GitHub repository (or open the repository you want to use).
-3. Upload `index.html`, `style.css`, and `script.js` to the repository root.
-4. Open **Settings → Pages**.
-5. Under Build and deployment, choose **Deploy from a branch**, select `main` and `/(root)`, then save.
-6. Wait for GitHub Pages to publish your site.
+1. Extract this ZIP.
+2. Upload `index.html`, `style.css`, `script.js`, and the complete `games` folder to your repository root.
+3. Open **Settings → Pages**.
+4. Select **Deploy from a branch**, choose `main` and `/(root)`, then save.
+5. Wait for GitHub Pages to provide your site URL.
 
-## Important
-- This is a game directory, not a proxy or a method to bypass school-managed network restrictions.
-- Game links open the publisher/host page in a new tab. Many game providers prohibit iframe embedding or use protections that stop it.
-- The listed URLs and availability can change. Review each game's current terms and use official/publisher-approved links.
-- GeForce NOW is linked at https://play.geforcenow.com/. It is not embedded, and the site cannot override NVIDIA account, device, region, or network requirements.
-- Favorites and recent history are stored locally in the visitor's browser with `localStorage`.
-- Google Fonts are optional; if blocked, the page falls back to system fonts.
+## Add a local HTML game
+1. Put the HTML file inside `games/`.
+2. Add a record in the `games` array in `script.js` with a unique `id`, `name`, `cat`, `meta`, `mark`, `icon`, `a`, `b`, and `file:"games/your-file.html"`.
+3. Refresh the site.
+
+This project is inspired by common browser-game portal features but uses original Stracath branding. Only host games you created or have permission to distribute. External games and GeForce NOW are opened through their own sites. This does not bypass network or school device restrictions.

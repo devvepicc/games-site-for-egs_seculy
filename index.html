@@ -1,98 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080c16">
-  <title>Stracath — Unblocked Games</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10002b"><title>Stracath — Play</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="Stracath home">
-      <span class="brand-icon">🎮</span>
-      <span><strong>Stracath</strong><small>Unblocked <em>Games</em></small></span>
-    </a>
-    <label class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="Search games..." autocomplete="off"></label>
-    <nav class="top-actions">
-      <button class="text-btn" data-view="favorites">♥ <span>Favorites</span></button>
-      <button class="text-btn" data-view="history">◷ <span>History</span></button>
-    </nav>
-  </header>
-
-  <div class="layout">
-    <aside class="sidebar">
-      <nav class="side-nav" aria-label="Game categories">
-        <button class="nav-item active" data-category="All">⌂ <span>Home</span></button>
-        <button class="nav-item" data-category="All">▦ <span>All Games</span></button>
-        <button class="nav-item" data-category="Action">ϟ <span>Action</span></button>
-        <button class="nav-item" data-category="Sports">⚽ <span>Sports</span></button>
-        <button class="nav-item" data-category="Arcade">🎮 <span>Arcade</span></button>
-        <button class="nav-item" data-category="Racing">◉ <span>Racing</span></button>
-        <button class="nav-item" data-category="Puzzle">✣ <span>Puzzle</span></button>
-        <button class="nav-item" data-category="IO Games">♟ <span>IO Games</span></button>
-        <button class="nav-item" data-category="Strategy">♛ <span>Strategy</span></button>
-        <div class="side-divider"></div>
-        <button class="nav-item geforce-link" id="sideGeforce">☁ <span>GeForce NOW</span><b>NVIDIA</b></button>
-      </nav>
-      <div class="sidebar-note"><span>♧</span><p>Play anywhere.<br>No downloads needed for supported browser games.</p></div>
-    </aside>
-
-    <main class="main-content">
-      <section class="hero">
-        <div class="hero-content">
-          <div class="hero-logo">🎮</div>
-          <div>
-            <h1>Stracath</h1>
-            <h2>Unblocked <span>Games</span></h2>
-          </div>
-          <p>Find your next favorite game. No downloads for supported browser games.</p>
-          <button class="primary-btn" id="exploreBtn">Explore Games <span>→</span></button>
-        </div>
-        <div class="hero-art" aria-hidden="true"><span>RETRO BOWL</span><span>SLOPE</span><span>1v1.LOL</span><span>GEOMETRY DASH</span></div>
-      </section>
-
-      <section class="section" id="featuredSection">
-        <div class="section-heading"><h2>🔥 Featured Games</h2><button class="link-btn" id="viewAllBtn">View all →</button></div>
-        <div class="game-grid featured-grid" id="featuredGrid"></div>
-      </section>
-
-      <section class="section" id="allGamesSection">
-        <div class="section-heading"><h2>▦ All Games</h2><span class="results-count" id="resultsCount"></span></div>
-        <div class="filters" id="filters">
-          <button class="filter active" data-category="All">All</button>
-          <button class="filter" data-category="Action">Action</button>
-          <button class="filter" data-category="Sports">Sports</button>
-          <button class="filter" data-category="Arcade">Arcade</button>
-          <button class="filter" data-category="Racing">Racing</button>
-          <button class="filter" data-category="Puzzle">Puzzle</button>
-          <button class="filter" data-category="IO Games">IO Games</button>
-          <button class="filter" data-category="Strategy">Strategy</button>
-        </div>
-        <div class="game-grid all-grid" id="allGamesGrid"></div>
-        <p class="empty-state" id="emptyState" hidden>No games found. Try another search or category.</p>
-      </section>
-      <footer>Stracath is a fan-made game directory and is not affiliated with the game publishers or NVIDIA. Availability depends on each service and your network's rules.</footer>
-    </main>
-
-    <aside class="rightbar">
-      <section class="panel geforce-panel">
-        <div class="nvidia-title"><span class="nvidia-mark">◉</span><div><small>NVIDIA</small><strong>GEFORCE NOW</strong></div></div>
-        <p>Play supported PC games through cloud gaming on compatible devices.</p>
-        <button class="nvidia-btn" id="geforceBtn">Open GeForce NOW ↗</button>
-        <ul class="feature-list"><li>♧ <span>Cloud gaming</span></li><li>↓ <span>No game downloads on supported devices</span></li><li>▣ <span>Compatible Chromebooks</span></li><li>◉ <span>Performance depends on connection</span></li></ul>
-      </section>
-      <section class="panel">
-        <h3>◷ Recently Played</h3>
-        <div id="historyList" class="mini-list"><p class="muted">Games you open will appear here.</p></div>
-      </section>
-      <section class="panel favorites-panel">
-        <h3>⭐ Your Favorites</h3><p>Save games using the heart on each card.</p>
-        <button class="secondary-btn" data-view="favorites">View Favorites</button>
-      </section>
-    </aside>
-  </div>
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<header class="top">
+ <button class="menu" id="menuBtn" aria-label="Toggle menu">☰</button>
+ <a class="brand" href="#"><span class="logo">S</span><span>stracath</span></a>
+ <label class="search"><span>⌕</span><input id="search" placeholder="Search games..." autocomplete="off"></label>
+ <button class="topbtn" id="settingsOpen">⚙ <span>Settings</span></button>
+</header>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+ <div class="side-label">LIBRARY</div>
+ <button class="side active" data-page="games">▦ <span>Games</span></button>
+ <button class="side" data-page="favorites">♥ <span>Favorites</span></button>
+ <button class="side" data-page="recent">◷ <span>Recently Played</span></button>
+ <div class="side-label space">CATEGORIES</div>
+ <button class="side" data-category="Arcade">◈ <span>Arcade</span></button>
+ <button class="side" data-category="Action">⚡ <span>Action</span></button>
+ <button class="side" data-category="Sports">⚽ <span>Sports</span></button>
+ <button class="side" data-category="Puzzle">✣ <span>Puzzle</span></button>
+ <button class="side" data-category="Strategy">♟ <span>Strategy</span></button>
+ <div class="side-label space">MORE</div>
+ <button class="side" id="geforce">☁ <span>GeForce NOW ↗</span></button>
+ <button class="side" id="aboutOpen">ⓘ <span>About Stracath</span></button>
+ <div class="side-note">Made for the love of games.<br><small>Stracath • HTML arcade</small></div>
+</aside>
+<main class="content">
+ <section class="welcome" id="welcome">
+  <div class="welcome-copy"><div class="eyebrow">YOUR BROWSER ARCADE</div><h1>Play something<br><span>awesome.</span></h1><p>A collection of games built for quick breaks and big scores.</p><button class="cta" id="browse">Browse games <span>→</span></button></div>
+  <div class="orbit" aria-hidden="true"><div class="orbit-ring"></div><div class="orbit-core">✦</div><span class="float f1">🎮</span><span class="float f2">★</span><span class="float f3">◆</span></div>
+ </section>
+ <div class="heading-row"><div><div class="eyebrow" id="sectionKicker">THE COLLECTION</div><h2 id="sectionTitle">All games</h2></div><span class="count" id="count"></span></div>
+ <div class="chips" id="chips"><button class="chip active" data-category="All">All games</button><button class="chip" data-category="Arcade">Arcade</button><button class="chip" data-category="Action">Action</button><button class="chip" data-category="Sports">Sports</button><button class="chip" data-category="Puzzle">Puzzle</button><button class="chip" data-category="Strategy">Strategy</button></div>
+ <div class="grid" id="grid"></div><div class="empty" id="empty" hidden>No games found. Try another search or category.</div>
+ <footer>Stracath is an independent project. Only locally hosted or authorized game files are included. External services follow their own rules.</footer>
+</main>
+</div>
+<div class="player" id="player" hidden><div class="playerbar"><div class="playing"><span class="live-dot"></span><div><strong id="playingName">Game</strong><small>Playing on Stracath</small></div></div><div class="playeractions"><button id="restart">↻ Restart</button><button id="fullscreen">⛶ Fullscreen</button><button id="close">✕ Close</button></div></div><iframe id="frame" title="Game player" src="about:blank" allow="fullscreen; gamepad"></iframe></div>
+<div class="modal-backdrop" id="settingsModal" hidden><section class="modal"><button class="modal-close" data-close="settingsModal">✕</button><div class="eyebrow">PERSONALIZE</div><h2>Settings</h2><label class="setting-row"><span><strong>Reduce animations</strong><small>Turn off hover and motion effects</small></span><input type="checkbox" id="reduceMotion"></label><label class="setting-row"><span><strong>Compact game cards</strong><small>Fit more games on the screen</small></span><input type="checkbox" id="compact"></label><p class="modal-note">Your preferences are saved in this browser.</p></section></div>
+<div class="modal-backdrop" id="aboutModal" hidden><section class="modal"><button class="modal-close" data-close="aboutModal">✕</button><div class="eyebrow">ABOUT</div><h2>Stracath</h2><p>A browser arcade built with HTML, CSS, and JavaScript. The included mini-games are stored in the repository and run locally inside the site.</p><p class="modal-note">Some commercial games and GeForce NOW cannot be copied into this project; use official supported pages for those services.</p></section></div>
+<div class="toast" id="toast" role="status"></div><script src="script.js"></script>
+</body></html>
